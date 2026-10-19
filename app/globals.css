@@ -65,11 +65,53 @@ button:focus-visible {
 }
 
 .invitation-content {
+  grid-area: 1 / 1;
   position: relative;
   z-index: 1;
   width: min(90%, 620px);
   padding: 64px 20px;
   text-align: center;
+}
+
+.invitation-cover {
+  grid-area: 1 / 1;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding:
+    calc(40px + env(safe-area-inset-top))
+    20px
+    calc(112px + env(safe-area-inset-bottom));
+  text-align: center;
+}
+
+.invitation-card {
+  position: relative;
+  width: min(100%, 760px);
+  margin-block: auto;
+  padding: clamp(36px, 8vw, 76px) clamp(20px, 7vw, 64px);
+  border: 1px solid rgb(217 189 120 / 75%);
+  background:
+    linear-gradient(145deg, rgb(9 45 36 / 76%), rgb(4 27 22 / 88%)),
+    radial-gradient(ellipse at 50% 0%, rgb(241 223 172 / 12%), transparent 70%);
+  box-shadow:
+    0 24px 80px rgb(0 0 0 / 24%),
+    inset 0 0 0 7px rgb(9 45 36 / 70%),
+    inset 0 0 0 8px rgb(217 189 120 / 28%);
+}
+
+.invitation-card::before {
+  position: absolute;
+  inset: 13px;
+  border: 1px solid rgb(217 189 120 / 28%);
+  content: "";
+  pointer-events: none;
 }
 
 .ornament {
@@ -120,6 +162,354 @@ button:focus-visible {
 .invitation-message {
   margin: 0;
   font-size: clamp(17px, 4vw, 21px);
+  font-style: italic;
+}
+
+.cover-kicker {
+  margin: 30px 0 0;
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  line-height: 1.7;
+}
+
+.invitation-card .couple-names {
+  margin-top: 12px;
+  font-size: clamp(40px, 7vw, 60px);
+}
+
+.cover-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 28px auto 0;
+  color: var(--gold-light);
+}
+
+.cover-divider span:not(.divider-star) {
+  width: clamp(32px, 10vw, 76px);
+  height: 1px;
+  background: rgb(217 189 120 / 65%);
+}
+
+.divider-star {
+  font-size: 13px;
+}
+
+.invitation-card .wedding-date {
+  margin-top: 18px;
+}
+
+.invitation-card .invitation-message {
+  margin-top: 8px;
+}
+
+.couple-introduction {
+  grid-area: 2 / 1;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  place-items: center;
+  padding:
+    clamp(72px, 12vw, 120px)
+    clamp(20px, 6vw, 72px)
+    calc(80px + env(safe-area-inset-bottom));
+  background:
+    radial-gradient(ellipse at 50% 10%, rgb(25 74 55 / 46%), transparent 64%),
+    linear-gradient(180deg, rgb(4 27 22 / 20%), rgb(4 27 22 / 80%));
+  text-align: center;
+}
+
+.introduction-content {
+  width: min(100%, 880px);
+}
+
+.introduction-kicker,
+.couple-role,
+.date-label {
+  margin: 0;
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  line-height: 1.7;
+}
+
+.introduction-content h2 {
+  margin: 14px 0 0;
+  color: var(--gold-light);
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.introduction-message {
+  max-width: 560px;
+  margin: 18px auto 0;
+  color: var(--cream);
+  font-size: clamp(17px, 3vw, 21px);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.couple-portraits {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(12px, 3vw, 32px);
+  margin: clamp(36px, 7vw, 64px) auto 0;
+}
+
+.couple-card {
+  position: relative;
+  min-width: 0;
+  min-height: 168px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px clamp(12px, 3vw, 30px);
+  border: 1px solid rgb(217 189 120 / 52%);
+  background: rgb(4 27 22 / 38%);
+}
+
+.couple-card::before {
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgb(217 189 120 / 20%);
+  content: "";
+  pointer-events: none;
+}
+
+.couple-card h3 {
+  margin: 0;
+  color: var(--gold-light);
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(34px, 5vw, 54px);
+  font-weight: 400;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.couple-connector {
+  color: var(--gold-light);
+  font-size: 30px;
+  font-style: italic;
+}
+
+.introduction-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 3vw, 28px);
+  margin: clamp(32px, 6vw, 54px) auto 0;
+}
+
+.introduction-date p {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+}
+
+.introduction-date span:not(.date-label) {
+  color: var(--gold-light);
+  font-size: clamp(18px, 4vw, 24px);
+  letter-spacing: 0.12em;
+}
+
+.date-line {
+  width: clamp(24px, 8vw, 78px);
+  height: 1px;
+  background: rgb(217 189 120 / 62%);
+}
+
+.wedding-events {
+  grid-area: 3 / 1;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  place-items: center;
+  padding:
+    clamp(72px, 12vw, 120px)
+    clamp(20px, 6vw, 72px)
+    calc(80px + env(safe-area-inset-bottom));
+  background:
+    radial-gradient(ellipse at 50% 80%, rgb(25 74 55 / 36%), transparent 62%),
+    linear-gradient(180deg, rgb(4 27 22 / 78%), rgb(9 45 36 / 35%));
+  text-align: center;
+}
+
+.events-content {
+  width: min(100%, 900px);
+}
+
+.events-content h2 {
+  margin: 14px 0 0;
+  color: var(--gold-light);
+  font-size: clamp(34px, 6vw, 54px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  justify-items: center;
+  gap: 24px;
+  margin: clamp(36px, 7vw, 64px) auto 0;
+}
+
+.event-card {
+  position: relative;
+  width: min(100%, 480px);
+  padding: clamp(28px, 5vw, 44px) clamp(20px, 4vw, 36px);
+  border: 1px solid rgb(217 189 120 / 64%);
+  background: rgb(4 27 22 / 52%);
+  box-shadow: inset 0 0 0 7px rgb(9 45 36 / 70%);
+}
+
+.event-card::before {
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgb(217 189 120 / 22%);
+  content: "";
+  pointer-events: none;
+}
+
+.event-ornament {
+  color: var(--gold-light);
+  font-size: 28px;
+  text-shadow: 0 0 18px rgb(217 189 120 / 35%);
+}
+
+.event-card h3 {
+  margin: 12px 0 0;
+  color: var(--gold-light);
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(36px, 5vw, 50px);
+  font-weight: 400;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.event-details {
+  display: grid;
+  gap: 18px;
+  margin: 28px 0 0;
+}
+
+.event-details div {
+  display: grid;
+  gap: 4px;
+}
+
+.event-details dt {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.event-details dd {
+  margin: 0;
+  color: var(--cream);
+  font-size: clamp(17px, 3vw, 20px);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.event-description,
+.events-pending {
+  max-width: 520px;
+  margin: 24px auto 0;
+  color: var(--cream);
+  font-size: clamp(16px, 3vw, 19px);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.wedding-countdown {
+  grid-area: 4 / 1;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  place-items: center;
+  padding:
+    clamp(72px, 12vw, 120px)
+    clamp(20px, 6vw, 72px)
+    calc(80px + env(safe-area-inset-bottom));
+  background:
+    radial-gradient(ellipse at 50% 45%, rgb(25 74 55 / 52%), transparent 68%),
+    linear-gradient(180deg, rgb(9 45 36 / 36%), rgb(4 27 22 / 80%));
+  text-align: center;
+}
+
+.countdown-content {
+  width: min(100%, 760px);
+}
+
+.countdown-content h2 {
+  margin: 14px 0 0;
+  color: var(--gold-light);
+  font-size: clamp(30px, 6vw, 52px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.countdown-target {
+  margin: 16px 0 0;
+  color: var(--gold-light);
+  font-size: clamp(16px, 3vw, 20px);
+  letter-spacing: 0.08em;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(8px, 2vw, 18px);
+  margin: clamp(36px, 7vw, 64px) auto 0;
+}
+
+.countdown-unit {
+  display: grid;
+  min-width: 0;
+  min-height: 118px;
+  align-content: center;
+  justify-items: center;
+  gap: 10px;
+  padding: 16px 8px;
+  border: 1px solid rgb(217 189 120 / 55%);
+  background: rgb(4 27 22 / 42%);
+}
+
+.countdown-value {
+  color: var(--gold-light);
+  font-size: clamp(27px, 6vw, 48px);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.countdown-label {
+  color: var(--gold);
+  font-size: clamp(9px, 1.8vw, 11px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.countdown-note {
+  margin: 26px 0 0;
+  color: var(--cream);
+  font-size: clamp(17px, 3vw, 20px);
   font-style: italic;
 }
 
@@ -227,6 +617,7 @@ button:focus-visible {
 }
 
 .open-invitation,
+.enter-invitation,
 .replay-button {
   position: absolute;
   z-index: 5;
@@ -255,7 +646,23 @@ button:focus-visible {
     color 0.25s ease;
 }
 
-.open-invitation:hover {
+.enter-invitation {
+  bottom: max(90px, calc(env(safe-area-inset-bottom) + 48px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 52px;
+  padding: 0 24px;
+  font-size: 17px;
+  letter-spacing: 0.07em;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.open-invitation:hover,
+.enter-invitation:hover {
   background: var(--gold);
   color: var(--green-dark);
 }
@@ -266,7 +673,8 @@ button:focus-visible {
 }
 
 .open-invitation:hover .button-star,
-.open-invitation:hover .button-arrow {
+.open-invitation:hover .button-arrow,
+.enter-invitation:hover .button-arrow {
   color: var(--green-dark);
 }
 
@@ -290,17 +698,49 @@ button:focus-visible {
   opacity: 0;
 }
 
+.is-entered {
+  overflow: clip;
+}
+
+.is-entered .door-scene,
+.is-entered .bottom-caption {
+  display: none;
+}
+
 @media (max-width: 380px) {
   .invitation-content {
     width: 94%;
     padding-inline: 8px;
   }
 
+  .invitation-cover {
+    padding-inline: 12px;
+  }
+
+  .invitation-card {
+    padding-inline: 18px;
+  }
+
   .couple-names {
     font-size: clamp(40px, 11vw, 52px);
   }
 
-  .open-invitation {
+  .couple-portraits {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    max-width: 340px;
+  }
+
+  .couple-card {
+    min-height: 140px;
+  }
+
+  .couple-connector {
+    line-height: 1;
+  }
+
+  .open-invitation,
+  .enter-invitation {
     padding-inline: 18px;
     font-size: 15px;
   }
